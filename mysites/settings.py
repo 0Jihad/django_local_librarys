@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'li%nyz2g7sx$ca7ua!a97fl&-hwcvv)i$fp5o)g!&ygf&e%bw7'
+#SECRET_KEY = 'li%nyz2g7sx$ca7ua!a97fl&-hwcvv)i$fp5o)g!&ygf&e%bw7'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -181,7 +181,9 @@ STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 from decouple import config
 import dj_database_url
-SECRET_KEY = config('SECRET_KEY')
+#SECRET_KEY = config('SECRET_KEY')
+import os
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'cg#p$g+j9tax!#a3cup@1$8obt2_+&k3q+pmu)5%asj6yjpkag')
 DEBUG = config('DEBUG', default=False, cast=bool)
 DATABASES = {
     'default': dj_database_url.config(
